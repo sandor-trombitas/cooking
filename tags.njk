@@ -1,0 +1,22 @@
+---
+pagination:
+  data: collections
+  size: 1
+  alias: tag
+  filter:
+    - all
+    - nav
+    - post
+    - posts
+    - tagList
+  addAllPagesToCollections: true
+layout: default
+permalink: /tags/{{ tag | slug }}/
+---
+<h1>{{tag | capitalize}} recipes </h1>
+{% set postslist = collections[ tag ] %}
+<ul>
+  {% for post in postslist%}
+  <li><a href="{{post.url}}">{{post.fileSlug}}</a>
+  {% endfor%}
+</ul>
