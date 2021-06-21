@@ -9,9 +9,10 @@ pagination:
     - post
     - posts
     - tagList
-  addAllPagesToCollections: true
+  addAllPagesToCollections: false
 layout: default
 permalink: /tags/{{ tag | slug }}/
+eleventyExcludeFromCollections: true
 ---
 <h1>{{tag | capitalize}} recipes </h1>
 {% set postslist = collections[ tag ] %}
