@@ -4,7 +4,6 @@ layout: default.njk
 tags:
   - pizza
   - baking
-image: https://i.imgur.com/9BAMhiF.gifv
 ---
 
 # Pizza dough recipe

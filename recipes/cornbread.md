@@ -9,6 +9,8 @@ author: Trombitas I. Sandor
 
 # Cornbread
 
+![](/images/cornbread.jpg)
+
 ### Ingredients:
 
 - 100-110g butter
