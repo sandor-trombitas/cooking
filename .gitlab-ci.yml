@@ -1,0 +1,36 @@
+stages:
+  - build
+  - deploy
+
+cache:
+  key: ${CI_COMMIT_REF_SLUG}
+  paths:
+    - node_modules/
+
+build:
+  image: node:latest
+  stage: build
+  script:
+    - npm i
+    - npm run build
+  artifacts:
+    paths:
+      - _site/
+  cache:
+    key: ${CI_COMMIT_REF_SLUG}
+    paths:
+      - node_modules/
+    policy: pull
+
+deploy:
+  only:
+    refs:
+      - master
+  image: docker:latest
+  stage: deploy
+  script:
+    - docker build --tag=cooking:latest .
+    - docker rm --force cooking || true
+    - docker run -d --name=cooking -p 80 cooking:latest
+  tags:
+    - dockerize
