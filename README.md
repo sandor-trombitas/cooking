@@ -1,4 +1,4 @@
-# Welcome to cookingmd 👋
+# Welcome to cooking 👋
 ![Version](https://img.shields.io/badge/version-0.1-blue.svg?cacheSeconds=2592000)
 
 > Cooking website that generates static html from markdown recipe files
