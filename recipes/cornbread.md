@@ -7,7 +7,7 @@ tags:
 author: Trombitas I. Sandor
 ---
 
-# Beef Beer Bean Chili
+# Cornbread
 
 ### Ingredients:
 
