@@ -7,7 +7,7 @@ tags:
 author: Trombitas I. Sandor
 ---
 
-Simple american style fluffy pancakes.
+# Simple american style fluffy pancakes.
 
 ### Ingredients:
 

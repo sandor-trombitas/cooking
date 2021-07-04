@@ -7,7 +7,7 @@ tags:
 author: Trombitas I. Sandor
 ---
 
-Beef Beer Bean Chili
+# Beef Beer Bean Chili
 
 ### Ingredients:
 
