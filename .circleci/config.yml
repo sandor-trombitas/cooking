@@ -3,7 +3,21 @@
 version: 2.1
 orbs:
   node: circleci/node@5
+  snyk: snyk/snyk@2.1.0
 jobs:
+  snyk_scan:
+    docker:
+      - image: cimg/node:lts
+    steps:
+      - checkout
+      - run: npm ci
+      - snyk/install
+      - run:
+          command: snyk version
+          name: Which version of snyk is installed
+      - run:
+          command: snyk code test
+          name: Run code scan
   test-node:
     # Install node dependencies and run tests
     executor: node/default
@@ -52,6 +66,9 @@ workflows:
   build-and-test:
     jobs:
       - test-node
+      - snyk_scan:
+          requires:
+            - test-node
       - build-node:
           requires:
             - test-node
