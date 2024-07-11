@@ -15,10 +15,8 @@ jobs:
         chmod +x snyk-linux
         sudo mv snyk-linux /usr/local/bin/snyk
 
-    - name: Authenticate Snyk CLI
-      run: |
-        snyk auth ${{ secrets.SNYK_TOKEN }}
-
     - name: Run Snyk to test project dependencies
+      env:
+        SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
       run: |
         snyk test
