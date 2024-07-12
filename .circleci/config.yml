@@ -7,7 +7,7 @@ orbs:
 jobs:
   snyk_scan:
     docker:
-      - image: cimg/node:lts
+      - image: cimg/node2:lts
     steps:
       - checkout
       - run: npm ci
