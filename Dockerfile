@@ -1,9 +1,20 @@
-from nginx:alpine
-COPY nginx.conf /etc/nginx/nginx.conf
-ADD _site/ /usr/share/nginx/html
+FROM node:20
 
-EXPOSE 80
+# Create app directory
+WORKDIR /usr/src/app
 
-ENV VIRTUAL_HOST=cooking.mannys.eu \
-    LETSENCRYPT_HOST=cooking.mannys.eu \
-    VIRTUAL_ROOT=/usr/share/nginx/html/
+# Install app dependencies
+COPY package*.json ./
+RUN npm install
+
+# Bundle app source
+COPY . .
+
+# Build the project
+RUN npm run build
+
+# Expose the port Eleventy serves on
+EXPOSE 8080
+
+# Define the command to run the app
+CMD [ "npm", "start" ]
